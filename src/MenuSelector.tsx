@@ -32,7 +32,7 @@ function MenuButton({ selectedState, text, stateToSet, setState }: MenuButtonPro
   const onClick = useCallback(() => {
     console.clear();
     setState(stateToSet);
-  }, [stateToSet]);
+  }, [stateToSet, setState]);
   return (
     <StyledButton variant={selectedState === stateToSet ? "primary" : "outline-primary"} onClick={onClick}>
       {text}

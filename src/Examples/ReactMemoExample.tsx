@@ -3,50 +3,18 @@ import { Button } from "react-bootstrap";
 import styled from "styled-components";
 import { StyledColumnDiv } from "./UseStateExample";
 
-const badTerms = [
-  "bad",
-  "terrible",
-  "awful",
-  "discouraging",
-  "lousy",
-  "atrocious",
-  "slipshod",
-];
+const badTerms = ["bad", "terrible", "awful", "discouraging", "lousy", "atrocious", "slipshod"];
 
-const goodTerms = [
-  "good",
-  "excellent",
-  "great",
-  "wonderful",
-  "nice",
-  "satisfactory",
-  "marvelous",
-];
+const goodTerms = ["good", "excellent", "great", "wonderful", "nice", "satisfactory", "marvelous"];
 
 export function ReactMemoExampleBad(): JSX.Element {
   const [counter, setCounter] = useState(0);
-  const [text, setText] = useState("");
   const [additionalComponentText, setAdditionalText] = useState(badTerms[0]);
 
   console.log(`Counter was initially set to zero, but it is now ${counter}.`);
 
   return (
     <StyledColumnDiv>
-      {text === "hello" ? (
-        <div>
-          <input
-            key={"hi"}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-          />
-        </div>
-      ) : (
-        <input
-          key={"hi"}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-      )}
       <h2>{counter}</h2>
       <Button
         onClick={() => {
@@ -75,9 +43,7 @@ export function ReactMemoExampleGood(): JSX.Element {
   const [counter, setCounter] = useState(0);
   const [additionalComponentText, setAdditionalText] = useState(goodTerms[0]);
 
-  console.log(
-    `Good example parent component has rerendered, counter is currently ${counter}.`
-  );
+  console.log(`Good example parent component has rerendered, counter is currently ${counter}.`);
 
   return (
     <StyledColumnDiv>
@@ -121,23 +87,13 @@ const AdditionalComponentBad = (props: AdditionalProps): JSX.Element => {
 Notice how this component re-renders each time the parent re-renders.
 A parent rerendering will cause its children to rerender.`);
 
-  return (
-    <StyledAdditionalDiv>
-      The additional {props.text} component
-    </StyledAdditionalDiv>
-  );
+  return <StyledAdditionalDiv>The additional {props.text} component</StyledAdditionalDiv>;
 };
 
-const AdditionalComponentGood = React.memo(
-  (props: AdditionalProps): JSX.Element => {
-    console.log(`Rerendering the ${props.text} additional component.
+const AdditionalComponentGood = React.memo((props: AdditionalProps): JSX.Element => {
+  console.log(`Rerendering the ${props.text} additional component.
 Notice that this component only rerenders when the props (the text) changes.`);
-    //Notice how this component does not rerender. This is because
+  //Notice how this component does not rerender. This is because
 
-    return (
-      <StyledAdditionalDiv>
-        The additional {props.text} component
-      </StyledAdditionalDiv>
-    );
-  }
-);
+  return <StyledAdditionalDiv>The additional {props.text} component</StyledAdditionalDiv>;
+});
