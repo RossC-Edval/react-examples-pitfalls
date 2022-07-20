@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import styled from "styled-components";
-import { StyledColumnDiv } from "./StyledElements";
+import { StyledAdditionalDiv, StyledColumnDiv } from "./StyledElements";
 
 const badTerms = ["bad", "terrible", "awful", "discouraging", "lousy", "atrocious", "slipshod"];
 
@@ -71,15 +71,6 @@ export function ReactMemoExampleGood(): JSX.Element {
     </StyledColumnDiv>
   );
 }
-
-const StyledAdditionalDiv = styled.div`
-  background-color: #dff6ff;
-  border: 4px solid white;
-  border-radius: 10px;
-  height: 50px;
-  margin: 20px;
-  padding: 10px;
-`;
 
 type AdditionalProps = { text: string };
 
