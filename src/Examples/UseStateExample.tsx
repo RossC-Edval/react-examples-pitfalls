@@ -1,21 +1,13 @@
-import React from "react";
 import { useState } from "react";
 import { Button } from "react-bootstrap";
-import styled from "styled-components";
-
-export const StyledColumnDiv = styled.div`
-  display: flex;
-  gap: 10px;
-  flex-direction: column;
-`;
+import { StyledColumnDiv } from "./StyledElements";
 
 export function UseStateExampleBad(): JSX.Element {
   let counter = 0;
   console.log(`Assigning counter initially to zero!`);
 
-  //Notice how the console.log above does not repeat when the button is pressed.
-  //This is because the component will only rerender if its props change, or if a react
-  //dispatch action occurs.
+  //Notice how the console.log above does not repeat when the button is pressed. This is because the
+  //component will only rerender if its props change, or if a react dispatch action occurs.
 
   return (
     <StyledColumnDiv>

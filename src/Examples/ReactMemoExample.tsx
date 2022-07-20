@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import styled from "styled-components";
-import { StyledColumnDiv } from "./UseStateExample";
+import { StyledColumnDiv } from "./StyledElements";
 
 const badTerms = ["bad", "terrible", "awful", "discouraging", "lousy", "atrocious", "slipshod"];
 
@@ -82,6 +82,10 @@ const StyledAdditionalDiv = styled.div`
 `;
 
 type AdditionalProps = { text: string };
+
+/**
+ * This component will rerender each time its parent component rerenders.
+ */
 const AdditionalComponentBad = (props: AdditionalProps): JSX.Element => {
   console.log(`Rerendering the ${props.text} additional component.
 Notice how this component re-renders each time the parent re-renders.
@@ -90,6 +94,12 @@ A parent rerendering will cause its children to rerender.`);
   return <StyledAdditionalDiv>The additional {props.text} component</StyledAdditionalDiv>;
 };
 
+/**
+ * This component makes use of React.memo, which will cache the result of the function call, and will only re-compute
+ * the output when the props have changed. For this example, it means that this component will only rerender when
+ * the value of props.text updates. This will prevent unnecessary rerenders, although this is not necessary for very
+ * lightweight components. Its main benefit is in larger, more complicated components.
+ */
 const AdditionalComponentGood = React.memo((props: AdditionalProps): JSX.Element => {
   console.log(`Rerendering the ${props.text} additional component.
 Notice that this component only rerenders when the props (the text) changes.`);

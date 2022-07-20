@@ -10,10 +10,16 @@ type MenuSelectorProps = {
 
 export function MenuSelector(props: MenuSelectorProps): JSX.Element {
   return (
-    <div>
+    <div
+      onClick={(event) => {
+        console.log(event);
+      }}
+    >
+      <span>oasndfsodi</span>
       <MenuButton text={"Menu"} selectedState={props.state} stateToSet={MenuState.None} setState={props.setState} />
       <MenuButton text={"useState()"} selectedState={props.state} stateToSet={MenuState.UseState} setState={props.setState} />
       <MenuButton text={"React.Memo()"} selectedState={props.state} stateToSet={MenuState.ReactMemo} setState={props.setState} />
+      <MenuButton text={"useMemo()"} selectedState={props.state} stateToSet={MenuState.UseMemo} setState={props.setState} />
     </div>
   );
 }
