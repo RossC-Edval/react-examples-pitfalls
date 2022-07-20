@@ -33,9 +33,7 @@ export function UseCallbackExampleBad(): JSX.Element {
       />
       <p>Profile details been updated {profileDetailsUpdateCount.toString()} times</p>
 
-      <p>Name: {profile.name}</p>
-      <p>Age: {profile.age}</p>
-      <p>Fruit: {profile.favFruit}</p>
+      <ProfileShower profile={profile} />
     </StyledColumnDiv>
   );
 }
@@ -61,9 +59,7 @@ export function UseCallbackExampleGood(): JSX.Element {
       <ProfileDetailsComponent profile={profile} setFunction={setProfileAndCount} />
       <p>Profile details been updated {profileDetailsUpdateCount.toString()} times</p>
 
-      <p>Name: {profile.name}</p>
-      <p>Age: {profile.age}</p>
-      <p>Fruit: {profile.favFruit}</p>
+      <ProfileShower profile={profile} />
     </StyledColumnDiv>
   );
 }
@@ -108,5 +104,17 @@ const ProfileDetailsComponent = React.memo((props: ProfileDetailsSetterProps): J
         <option value="Other">Other</option>
       </Form.Select>
     </StyledAdditionalDiv>
+  );
+});
+
+type ProfileShowerProps = { profile: ProfileInfo };
+const ProfileShower = React.memo((props: ProfileShowerProps): JSX.Element => {
+  console.log("Rendering ProfileShower");
+  return (
+    <div>
+      <p>Name: {props.profile.name}</p>
+      <p>Age: {props.profile.age}</p>
+      <p>Fruit: {props.profile.favFruit}</p>
+    </div>
   );
 });
