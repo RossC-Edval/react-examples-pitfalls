@@ -14,6 +14,6 @@ export const StyledAdditionalDiv = styled.div<StyledColumnDivProps>`
   background-color: #dff6ff;
   border: 4px solid white;
   border-radius: 10px;
-  margin: 20px;
+  margin: 15px;
   padding: 10px;
 `;

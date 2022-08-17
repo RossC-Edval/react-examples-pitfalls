@@ -2,10 +2,11 @@ import { Container, Row, Col } from "react-bootstrap";
 import styled from "styled-components";
 import { ReactMemoExampleBad, ReactMemoExampleGood } from "./Examples/ReactMemoExample";
 import { UseCallbackExampleBad, UseCallbackExampleGood } from "./Examples/UseCallbackExample";
-import { UseMemoExampleBad, UseMemoExampleGood } from "./Examples/seMemoExample";
+import { UseMemoExampleBad, UseMemoExampleGood } from "./Examples/UseMemoExample";
 import { UseStateExampleBad, UseStateExampleGood } from "./Examples/UseStateExample";
 import { MenuState } from "./menu";
 import { UseRefExampleBad, UseRefExampleGood } from "./Examples/UseRefExample";
+import { UseContextExampleBad, UseContextExampleGood } from "./Examples/UseContextExample";
 
 const StyledContainer = styled(Container)``;
 
@@ -40,9 +41,13 @@ export function ContentShower(props: ContentShowerProps): JSX.Element {
       badExample = <UseCallbackExampleBad />;
       goodExample = <UseCallbackExampleGood />;
       break;
-      case MenuState.UseRef:
+    case MenuState.UseRef:
       badExample = <UseRefExampleBad />;
       goodExample = <UseRefExampleGood />;
+      break;
+    case MenuState.UseContext:
+      badExample = <UseContextExampleBad />;
+      goodExample = <UseContextExampleGood />;
       break;
     default:
       console.log("Not implemented yet");

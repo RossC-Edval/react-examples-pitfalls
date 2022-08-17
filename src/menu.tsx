@@ -10,6 +10,7 @@ export enum MenuState {
   UseMemo,
   ReactMemo,
   UseCallback,
+  UseContext,
 }
 
 export function Menu(): JSX.Element {

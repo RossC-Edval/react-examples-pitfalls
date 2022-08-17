@@ -15,13 +15,13 @@ export function MenuSelector(props: MenuSelectorProps): JSX.Element {
         console.log(event);
       }}
     >
-      <span>oasndfsodi</span>
       <MenuButton text={"Menu"} selectedState={props.state} stateToSet={MenuState.None} setState={props.setState} />
       <MenuButton text={"useState()"} selectedState={props.state} stateToSet={MenuState.UseState} setState={props.setState} />
       <MenuButton text={"React.Memo()"} selectedState={props.state} stateToSet={MenuState.ReactMemo} setState={props.setState} />
       <MenuButton text={"useMemo()"} selectedState={props.state} stateToSet={MenuState.UseMemo} setState={props.setState} />
       <MenuButton text={"useCallback()"} selectedState={props.state} stateToSet={MenuState.UseCallback} setState={props.setState} />
       <MenuButton text={"useRef()"} selectedState={props.state} stateToSet={MenuState.UseRef} setState={props.setState} />
+      <MenuButton text={"useContext()"} selectedState={props.state} stateToSet={MenuState.UseContext} setState={props.setState} />
     </div>
   );
 }
